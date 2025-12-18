@@ -1,19 +1,85 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>testWebPage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLO-SET Embed Viewer Test Page</title>
+    <style>
+      iframe {
+        border: none;
+        display: block;
+        margin: 20px auto;
+      }
+      
+      .with-border {
+        border: 10px solid gray;
+      }
+      
+      section {
+        margin-bottom: 40px;
+      }
+
+      .note {
+        color: red;
+        font-size: 0.9em;
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello, World!</h1>
-    <h2>iframe</h2>
-    <iframe width="80%" height="800" src="https://style.clo-set.com/embed/f9e79226e7f24a8e88f2a27fc0c967dd/1/r/289854/0/0?colorway=0" frameborder="0" allowfullscreen></iframe>
-    <h2>iframe allow 3D</h2>
-    <iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameborder="10" width="80%" height="800" src="https://style.clo-set.com/embed/f9e79226e7f24a8e88f2a27fc0c967dd/1/c/0?colorway=0" allowfullscreen></iframe>
-    <h2>iframe allow 2D</h2>
-    <iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameborder="10" width="80%" height="800" src="https://style.clo-set.com/embed/f9e79226e7f24a8e88f2a27fc0c967dd/1/r/289854/0/0?colorway=0" allowfullscreen></iframe>
-    <h2>iframe allow sandbox 3D</h2>
-    <iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-same-origin allow-scripts" frameborder="10" width="80%" height="800" src="https://style.clo-set.com/embed/f9e79226e7f24a8e88f2a27fc0c967dd/1/c/0?colorway=0" allowfullscreen></iframe>
-    <p>asdf</p>
+    
+    <section>
+      <h2>V-Ray Render Viewer, No Border, No Permissions</h2>
+      <iframe 
+        width="80%" 
+        height="800" 
+        src="https://style.clo-set.com/embed/a59f820618364b3a94113c4f6922be51/3/r/801025/0/0?colorway=0"
+        title="V-Ray Render Viewer">
+      </iframe>
+      <p class="note">* The Fullscreen button should not work.</p>
+    </section>
+    
+    <section>
+      <h2>3D Viewer, allow="fullscreen; picture-in-picture; accelerometer; gyroscope" </h2>
+      <iframe 
+        class="with-border"
+        width="80%" 
+        height="800" 
+        src="https://style.clo-set.com/embed/a59f820618364b3a94113c4f6922be51/3/c/0?colorway=0&autoRotate=1"
+        allow="fullscreen; picture-in-picture; accelerometer; gyroscope"
+        title="3D Viewer">
+      </iframe>
+    </section>
+    
+    <section>
+      <h2>V-Ray Render Viewer, allow="fullscreen; picture-in-picture;</h2>
+      <iframe 
+        class="with-border"
+        width="80%" 
+        height="800" 
+        src="https://style.clo-set.com/embed/a59f820618364b3a94113c4f6922be51/3/r/801025/0/0?colorway=0"
+        allow="fullscreen; picture-in-picture;"
+        title="V-Ray Render Viewer with Enhanced Permissions">
+      </iframe>
+    </section>
+    
+    <section>
+      <h2>3D Viewer in sandbox</h2>
+      <iframe 
+        class="with-border"
+        width="80%" 
+        height="800" 
+        src="https://style.clo-set.com/embed/a59f820618364b3a94113c4f6922be51/3/c/0?colorway=0&autoRotate=1"
+        sandbox="allow-same-origin allow-scripts"
+        allow="fullscreen; picture-in-picture; accelerometer; gyroscope"
+        title="3D Viewer in sandbox">
+      </iframe>
+      <p class="note">* 3D Viewer should work fine in the sandbox.</p>
+    </section>
+    
+    <footer>
+      <p>CLO-SET Embed Viewer Test Page</p>
+    </footer>
   </body>
 </html>
